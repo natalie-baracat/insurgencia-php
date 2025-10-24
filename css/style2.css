@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* background: #060606; */
+  background: url(../img/fundo.jpg) no-repeat center center fixed; 
+  color: #eee;
+  line-height: 1.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+  border-bottom: 0.1px solid rgba(127, 14, 14, 0.375);
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(1,1,1,0.727);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  transition: background 0.3s;
+}
+
+header > * { position: relative; z-index: 1; }
+
+header h1 {
+  font-family: "Rubik Burned", system-ui;
+  font-weight: 400;
+  font-size: 3em;
+  color: #c00;
+  transform: rotate(-4deg);
+  display: inline-block;
+}
+
+nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #eee;
+  font-weight: 900;
+  font-size: 1em;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #c00;
+  transition: width 0.3s ease;
+}
+
+nav a:hover { color: #c00; }
+nav a:hover::after { width: 100%; }
+
+/* Banner com parallax fake + fade rápido */
+.banner {
+  position: relative;
+  height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax fake */
+  transition: opacity 0.1s ease; /* fade rápido */
+  z-index: 0;
+}
+
+.banner1 { background-image: url("../img/banner-rock.jpg"); opacity: 1; }
+.banner2 { background-image: url("../img/banner-rock2.png"); opacity: 0; }
+
+.banner h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+/* Produtos */
+main {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+main h2 {
+  color: #c00;
+  margin-bottom: 40px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.produto {
+  background: rgba(22, 22, 22, 0.54);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: rgba(86, 86, 86, 0.433) solid 0.2px;
+  max-height: 70vh;
+  width: 20vw;
+}
+
+.produto:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 12px 24px rgba(13, 0, 0, 0.892);
+}
+
+.produto img { width: 100%; height: 30vh; object-fit: cover; }
+.produto h3 { margin: 15px; font-size: 1.2em; }
+.produto p { margin: 0 15px; color: #958080; font-weight: bold; }
+
+.produto a {
+  display: block;
+  margin: 15px;
+  padding: 10px;
+  background: #900;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.produto a:hover {
+  background: #c00;
+  transform: scale(1.05) rotate(-5deg);
+}
+
+footer {
+  background: #010101;
+  text-align: center;
+  padding: 20px;
+  border-top: 0.5px solid rgba(204, 0, 0, 0.273);
+  font-size: 0.9em;
+  color: #aaa;
+}
