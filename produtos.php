@@ -3,7 +3,9 @@ session_start(); // inicia sessão
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,7 +21,7 @@ ini_set('display_errors', 1);
     <h1>.INSURGÊNCiA</h1>
     <nav style="align-items: center;">
       <a href="index.php">.home</a>
-      <a href="produtos.php">.produtos</a>
+      <a href="#">.produtos</a>
       <a href="#">.contato</a>
 
       <?php if (isset($_SESSION['id_usuario'])): ?>
@@ -41,16 +43,8 @@ ini_set('display_errors', 1);
   <!-- Espaço para header fixo -->
   <div style="height:90px; background:#000;"></div>
 
-  <!-- Banner com parallax e fade -->
-  <section class="banner">
-    <div class="banner-bg banner1"></div>
-    <div class="banner-bg banner2"></div>
-    <h2>Descubra sua verdadeira face!</h2>
-  </section>
-
-  <!-- Lista de produtos -->
   <main>
-    <h2>Camisetas em destaque</h2>
+    <h2>Produtos</h2>
     <div class="produtos">
       <?php
       include 'conexao.php';
@@ -84,26 +78,9 @@ ini_set('display_errors', 1);
     </div>
   </main>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 Insurgência - Todos os direitos reservados</p>
   </footer>
-
-  <!-- Script inline para fade do banner -->
-  <script>
-    const banner = document.querySelector('.banner');
-    const banner2 = document.querySelector('.banner2');
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const bannerHeight = banner.offsetHeight;
-
-      // Opacidade baseada na rolagem
-      let opacity = scrollTop / bannerHeight;
-      if (opacity > 1) opacity = 1;
-
-      banner2.style.opacity = opacity;
-    });
-  </script>
 </body>
+
 </html>
